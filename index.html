@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#8d5a2b"><link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<title>Namaz Ağacım</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,sans-serif;background:#aaffff;color:#333;min-height:100vh}
+.ekran{display:none;padding:14px;max-width:520px;margin:0 auto}.ekran.a{display:block}
+.kart{background:#e9ffff;border:2px solid #555;border-radius:12px;padding:16px;margin-top:10px}
+h1,h2{color:#480bff;margin:.2em 0}input,button,select{font:inherit}
+input[type=text],input[type=number],input[type=date]{width:100%;padding:10px;border:1px solid #888;border-radius:8px;background:#aaff7f;margin:4px 0 10px}
+.btn{background:#eaea37;color:#550000;border:2px solid #00007f;border-radius:10px;padding:10px 16px;margin:4px 4px 0 0;cursor:pointer}
+.btn:active{background:#ffff3b}.sekme{display:flex;gap:6px}.sekme .btn{flex:1;margin:0}.sekme .sec{background:#aaff00;font-weight:700}
+.panel{background:#acff7f;padding:10px;border-radius:8px;margin:6px 0}.sat{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:1.05em}
+.sat label{flex:1}.sat .kz{color:#7a4a00;font-weight:700}.sat input{width:22px;height:22px}
+#agac{padding:0;max-width:none}.ust{display:flex;gap:6px;align-items:center;padding:8px;background:#f5f5f5}
+.ust b{flex:1;text-align:center;font-size:1.2em}canvas{width:100%;display:block;background:#d6efff}
+#rapor{text-align:center;padding:8px;background:#f5f5f5}details{margin:6px 10px;background:#f6e7c1;border:2px solid #8d5a2b;border-radius:10px;padding:8px}
+</style></head><body>
+<div id="giris" class="ekran"><div class="kart"><h1>Namaz Ağacım'a Hoş Geldiniz</h1>
+<p><i>“Cennetin anahtarı, namazdır...” (Tirmizî, Tahâret, 1)</i></p>
+<label>Adınız</label><input id="ad" type="text"><label>Yaşınız</label><input id="yas" type="number" min="1" max="120">
+<button class="btn" id="girisBtn">Giriş</button></div></div>
+
+<div id="form" class="ekran"><div class="kart"><h2 id="baslik">Namaz Ağacım</h2>
+<input id="tarih" type="date">
+<div class="sekme"><button class="btn sec" id="s1">Farz Namazlar</button><button class="btn" id="s2">Sadakalar</button></div>
+<div class="panel" id="p1"></div><div class="panel" id="p2" hidden></div>
+<button class="btn" id="kaydet">Kaydet</button><button class="btn" id="goster">Ağacımı Göster</button>
+<p id="durum" style="min-height:1.4em;color:#060"></p></div></div>
+
+<div id="agac" class="ekran"><div class="ust"><button class="btn" id="geri">◀ Geri</button><b id="ayBaslik"></b><button class="btn" id="paylas">Paylaş</button></div>
+<details><summary><b>Kullanım Kılavuzu</b></summary><p>Ağaç bir ayı temsil eder: 4 büyük dal = 4 hafta, küçük dal = gün, yaprak = namaz vakti, meyve = sadaka. Kıldığın namazın yaprağı <b style="color:#2e8b3a">yeşil</b>, kaza kıldığın <b style="color:#d49a00">sarı</b> olur. Verdiğin her sadaka için bir meyve <b style="color:#e53935">kırmızı</b> olur.</p></details>
+<canvas id="cv"></canvas><div id="rapor"></div></div>
+<script src="agac.js"></script></body></html>
